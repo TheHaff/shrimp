@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>🦐💰</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI Emoji',
+          'Noto Color Emoji',
+          sans-serif;
+        font-size: 8rem;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        animation: float 3s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      /* Base gradient layer with animation */
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120%;
+        height: 120%;
+        background: linear-gradient(
+          45deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        animation: gradientShift 8s ease-in-out infinite;
+      }
+
+      /* Texture layer with radial gradients */
+      body::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120%;
+        height: 120%;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(120, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(120, 219, 255, 0.2) 0%,
+            transparent 50%
+          );
+        animation: noise 4s ease-in-out infinite;
+        filter: blur(1px);
+      }
+
+      /* Gradient rotation animation */
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background: linear-gradient(
+            45deg,
+            #667eea 0%,
+            #764ba2 50%,
+            #f093fb 100%
+          );
+        }
+        25% {
+          background: linear-gradient(
+            135deg,
+            #667eea 0%,
+            #764ba2 50%,
+            #f093fb 100%
+          );
+        }
+        50% {
+          background: linear-gradient(
+            225deg,
+            #667eea 0%,
+            #764ba2 50%,
+            #f093fb 100%
+          );
+        }
+        75% {
+          background: linear-gradient(
+            315deg,
+            #667eea 0%,
+            #764ba2 50%,
+            #f093fb 100%
+          );
+        }
+      }
+
+      /* Texture movement animation */
+      @keyframes noise {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        25% {
+          transform: translate(-2px, -1px) scale(1.02);
+        }
+        50% {
+          transform: translate(1px, -2px) scale(0.98);
+        }
+        75% {
+          transform: translate(-1px, 2px) scale(1.01);
+        }
+      }
+
+      /* Emoji floating animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      #s {
+        position: relative;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="s">💰🦐</h1>
+  </body>
+</html> 
