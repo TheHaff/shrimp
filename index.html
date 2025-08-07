@@ -70,6 +70,64 @@
         filter: blur(1px);
       }
 
+
+
+      /* Shark fin styles */
+      .shark-fin {
+        position: fixed;
+        bottom: 4px;
+        left: -100px;
+        width: 80px;
+        height: 92px;
+        z-index: 10;
+        animation: swim 20s linear infinite;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      }
+
+      /* Holographic effect - applied directly to the SVG */
+      .shark-fin svg {
+        filter: url(#holographicFilter);
+      }
+
+
+
+      /* Swimming animation */
+      @keyframes swim {
+        0% {
+          transform: translateX(-100px) translateY(0px);
+        }
+        10% {
+          transform: translateX(10vw) translateY(-2px);
+        }
+        20% {
+          transform: translateX(20vw) translateY(1px);
+        }
+        30% {
+          transform: translateX(30vw) translateY(-1px);
+        }
+        40% {
+          transform: translateX(40vw) translateY(2px);
+        }
+        50% {
+          transform: translateX(50vw) translateY(-1px);
+        }
+        60% {
+          transform: translateX(60vw) translateY(1px);
+        }
+        70% {
+          transform: translateX(70vw) translateY(-2px);
+        }
+        80% {
+          transform: translateX(80vw) translateY(1px);
+        }
+        90% {
+          transform: translateX(90vw) translateY(-1px);
+        }
+        100% {
+          transform: translateX(calc(100vw + 100px)) translateY(0px);
+        }
+      }
+
       /* Gradient rotation animation */
       @keyframes gradientShift {
         0%,
@@ -138,10 +196,57 @@
       #s {
         position: relative;
         z-index: 2;
+        filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.6)) 
+                drop-shadow(0 0 30px rgba(0, 255, 255, 0.4))
+                drop-shadow(0 0 40px rgba(255, 255, 0, 0.3));
+        animation: psychedelic-shadow 3s ease-in-out infinite;
+      }
+
+      @keyframes psychedelic-shadow {
+        0%, 100% {
+          filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.6)) 
+                  drop-shadow(0 0 30px rgba(0, 255, 255, 0.4))
+                  drop-shadow(0 0 40px rgba(255, 255, 0, 0.3));
+        }
+        33% {
+          filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.6)) 
+                  drop-shadow(0 0 30px rgba(255, 255, 0, 0.4))
+                  drop-shadow(0 0 40px rgba(255, 0, 255, 0.3));
+        }
+        66% {
+          filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.6)) 
+                  drop-shadow(0 0 30px rgba(255, 0, 255, 0.4))
+                  drop-shadow(0 0 40px rgba(0, 255, 255, 0.3));
+        }
       }
     </style>
   </head>
   <body>
     <h3 id="s">💰🦐</h1>
+    
+
+    
+    <!-- Shark fin -->
+    <div class="shark-fin">
+      <svg width="79" height="91" viewBox="0 0 79 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="holographicFilter">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.5"/>
+            <feColorMatrix type="hueRotate" values="0">
+              <animate attributeName="values" 
+                values="0;60;120;180;240;300;360" 
+                dur="4s" 
+                repeatCount="indefinite"/>
+            </feColorMatrix>
+            <feComponentTransfer>
+              <feFuncR type="linear" slope="1.2"/>
+              <feFuncG type="linear" slope="1.2"/>
+              <feFuncB type="linear" slope="1.2"/>
+            </feComponentTransfer>
+          </filter>
+        </defs>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6598 0.525391H0V22.8037L5.89292 28.6966L0 35.3499V90.5086H9.71735V39.0345L19.2315 28.2927L9.71735 18.7786V11.8877C25.2092 23.5012 36.2982 34.4925 45.1248 46.6882C54.0281 58.99 60.7625 72.6993 67.3452 89.8735L67.6847 90.7594H78.067L77.3668 88.8948C70.325 70.1422 63.0194 54.8393 52.9968 40.991C42.778 26.8716 29.8857 14.4709 11.936 1.45109L10.6598 0.525391Z" fill="#1C143C"/>
+      </svg>
+    </div>
   </body>
 </html> 
